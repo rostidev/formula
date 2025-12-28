@@ -1,7 +1,7 @@
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -std=c23 -Wall -MMD -MP
+CFLAGS = -std=c23 -pedantic -Wall -MMD -MP
 LDFLAGS = -lSDL3 -lm
 
 .PHONY: all clean

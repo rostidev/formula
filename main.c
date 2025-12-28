@@ -21,39 +21,39 @@ point_t screen(point_t p) {
 
     // -1..1 => 0..2 => 0..1 => 0..w
     return (point_t){
-        x: (p.x + 1) / 2 * width,
-        y: (1 - (p.y + 1) / 2) * height,
+        .x = (p.x + 1) / 2 * width,
+        .y = (1 - (p.y + 1) / 2) * height,
     };
 }
 
 void point(point_t p) {
     const float s = 10;
     SDL_SetRenderDrawColor(state->renderer, 0x50, 0xFF, 0x50, SDL_ALPHA_OPAQUE);
-    SDL_RenderFillRect(state->renderer, &(SDL_FRect){x: p.x - s/2, y: p.y - s/2, s, s});
+    SDL_RenderFillRect(state->renderer, &(SDL_FRect){.x = p.x - s/2, .y = p.y - s/2, s, s});
 }
 
 point_t project(point3d_t p) {
     const float focal = 2.5f;  // Focal distance of virtual lens
     return (point_t){
-        x: (p.x / p.z) * focal,
-        y: (p.y / p.z) * focal
+        .x = (p.x / p.z) * focal,
+        .y = (p.y / p.z) * focal
     };
 }
 
 point3d_t translate_z(point3d_t p, float dz) {
     return (point3d_t){
-        x: p.x,
-        y: p.y,
-        z: p.z + dz};
+        .x = p.x,
+        .y = p.y,
+        .z = p.z + dz};
 }
 
 point3d_t rotate_xz(point3d_t p, float angle) {
     double c = cos(angle);
     double s = sin(angle);
     return (point3d_t){
-        x: p.x * c - p.z * s,
-        y: p.y,
-        z: p.x * s + p.z * c,
+        .x = p.x * c - p.z * s,
+        .y = p.y,
+        .z = p.x * s + p.z * c,
     };
 }
 
@@ -61,9 +61,9 @@ point3d_t rotate_yz(point3d_t p, float angle) {
     double c = cos(angle);
     double s = sin(angle);
     return (point3d_t){
-        x: p.x,
-        y: p.y * c - p.z * s,
-        z: p.y * s + p.z * c,
+        .x = p.x,
+        .y = p.y * c - p.z * s,
+        .z = p.y * s + p.z * c,
     };
 }
 
@@ -88,8 +88,8 @@ void frame(point3d_t vs[], fs_t fs[], size_t fs_len, float angle, float angle2, 
                 b = rotate2(b, angle2);
             }
 
-            a = (point3d_t){x: a.x + shift_x, y: a.y + shift_y, z: a.z};
-            b = (point3d_t){x: b.x + shift_x, y: b.y + shift_y, z: b.z};
+            a = (point3d_t){.x = a.x + shift_x, .y = a.y + shift_y, .z = a.z};
+            b = (point3d_t){.x = b.x + shift_x, .y = b.y + shift_y, .z = b.z};
 
             point_t pa = screen(project(translate_z(a, dz)));
             point_t pb = screen(project(translate_z(b, dz)));
