@@ -150,10 +150,16 @@ int main(int argc, char *argv[])
             i = 0;
         }
 
-        frame(vs_penguin, fs_penguin, sizeof fs_penguin / sizeof fs_penguin[0], angle3, angle1, dz, 0, 0, rotate_xz, rotate_yz);
+        // frame(vs_penguin, fs_penguin, sizeof fs_penguin / sizeof fs_penguin[0], angle3, angle1, dz, 0, 0, rotate_xz, rotate_yz);
 
-        frame(vs_cube, fs_cube, sizeof fs_cube / sizeof fs_cube[0], angle2, angle2, dz, -1.25, 0, rotate_xz, rotate_yz);
-        frame(vs_cube, fs_cube, sizeof fs_cube / sizeof fs_cube[0], angle1, angle2, dz, +1.25, 0, rotate_xz, rotate_yz);
+        frame(vs_suitger, fs_suitger, sizeof fs_suitger / sizeof fs_suitger[0], angle3, angle1, dz, 0, 0, rotate_xz, NULL);
+
+        // frame(vs_cube, fs_cube, sizeof fs_cube / sizeof fs_cube[0], angle2, angle2, dz, -1.25, 0, rotate_xz, rotate_yz);
+        // frame(vs_cube, fs_cube, sizeof fs_cube / sizeof fs_cube[0], angle1, angle2, dz, +1.25, 0, rotate_xz, rotate_yz);
+
+        frame(vs_penguin, fs_penguin, sizeof fs_penguin / sizeof fs_penguin[0], angle1, angle2, dz, -1.25, 0, rotate_xz, NULL);
+        frame(vs_penguin, fs_penguin, sizeof fs_penguin / sizeof fs_penguin[0], angle2, angle2, dz, +1.25, 0, rotate_xz, NULL);
+
         frame(vs_cube, fs_cube, sizeof fs_cube / sizeof fs_cube[0], angle1, angle2, dz, 0, -1.25, rotate_yz, rotate_xz);
         frame(vs_cube, fs_cube, sizeof fs_cube / sizeof fs_cube[0], angle2, angle2, dz, 0, +1.25, rotate_yz, rotate_xz);
 
