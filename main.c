@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    float dz, angle1, angle2, angle3;
+    float dz = 10 * DT, angle1 = 0, angle2 = 0, angle3 = 0;
     int i = 0;
 
     for (bool running = true; running; i++) {
@@ -144,9 +144,7 @@ int main(int argc, char *argv[])
             angle3 += 1.25f * M_PI * DT;
         } else {
             dz = 10 * DT;
-            angle1 = 0;
-            angle2 = 0;
-            angle3 = 0;
+            angle1 = angle2 = angle3 = 0;
             i = 0;
         }
 
